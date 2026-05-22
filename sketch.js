@@ -4,6 +4,7 @@ let size = 100;
 let click;
 let boom;
 let fah;
+let slowfah;
 
 let pingu;
 let pinguOpacity = 0;
@@ -11,13 +12,18 @@ let pinguOpacity = 0;
 let fahimg;
 let fahOpacity = 0;
 
+let slowfahimg;
+let slowfahOpacity = 0;
+
 function preload() {
   click = loadSound("assets/sounds/click.mp3");
   boom = loadSound("assets/sounds/boom.mp3");
   fah = loadSound("assets/sounds/fah.mp3");
+  slowfah = loadSound("assets/sounds/slowfah.mp3");
   
   pingu = loadImage("assets/images/pingu.jpg");
   fahimg = loadImage("assets/images/fahimg.jpg");
+  slowfahimg = loadImage("assets/images/slowfah.jpg");
 }
 
 function setup() {
@@ -32,10 +38,13 @@ function setup() {
 
 function playDaSound() {
   let i = random();
-  if (i > 0.995) {
+  if (i >= 0.995) {
+    slowfah.play();
+    slowfahOpacity = 255;
+  } else if (i > 0.98) {
     fah.play();
     fahOpacity = 255;
-  } else if (i > 0.98) {
+  } else if (i > 0.9) {
     boom.play();
     pinguOpacity = 255;
   } else {
@@ -69,18 +78,22 @@ function draw() {
     yvel *= -1;
     playDaSound();
   }
-  
-  rectMode(CENTER);
-  fill(200);
-  stroke(0);
-  strokeWeight(8);
-  rect(x, y, size, size);
-  
-    tint(255, pinguOpacity);
+
+  tint(255, pinguOpacity);
   image(pingu, 0, 0, width, height);
   pinguOpacity -= 3;
   
   tint(255, fahOpacity);
   image(fahimg, 0, 0, width, height);
   fahOpacity -= 3;
+
+  tint(255, slowfahOpacity);
+  image(slowfahimg, 0, 0, width, height);
+  slowfahOpacity -= 1;
+  
+  rectMode(CENTER);
+  fill(200);
+  stroke(0);
+  strokeWeight(8);
+  rect(x, y, size, size);
 }
