@@ -28,7 +28,8 @@ function preload() {
 
 function setup() {
   frameRate(60);
-  createCanvas(700, 450);
+  const canvas = createCanvas(700, 450);
+  canvas.parent('sketch-holder');
   
   x = width /2;
   y = height/2;

@@ -1,0 +1,33 @@
+body {
+  background-color: #a2abb8; /* A classic, soft light grey */
+  /* Optional but recommended for readability: */
+  color: #333; /* Dark grey text (not pure black - easier on eyes) */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Clean, modern font */
+  margin: 0;
+  padding: 20px; /* Adds breathing room */
+}
+
+/* Example: Make content containers stand out slightly */
+.container {
+  background-color: white; /* Pure white for cards/sections */
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05); /* Subtle shadow for depth */
+  padding: 25px;
+  margin: 20px auto;
+  max-width: 900px;
+}
+
+.centered_content {
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+ height: 100vh;
+ text-align: center;
+ gap: 24px;
+}
+
+h1 {
+  color: #000000;
+  margin: 0;
+}
